@@ -10,7 +10,9 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "sanity:dev": "sanity dev",
-    "migrate:wix": "node scripts/migrate-wix-project.mjs"
+    "migrate:wix": "node scripts/migrate-wix-project.mjs",
+    "publish:trinidad": "node scripts/publish-trinidad-content.mjs --slug trinidad-and-tobago --source https://www.aditirawat.com/animations/trinidad-and-tobago",
+    "publish:project": "node scripts/publish-trinidad-content.mjs"
   },
   "dependencies": {
     "@portabletext/react": "^3.2.0",

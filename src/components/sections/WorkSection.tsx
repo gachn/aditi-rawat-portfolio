@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useRef } from "react";
 import type { ProjectItem } from "@/lib/sanity/types";
 import Link from "next/link";
 
@@ -15,50 +17,72 @@ export function WorkSection({
   viewAllHref,
   projects
 }: Readonly<WorkSectionProps>) {
+  const sectionRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    if (typeof IntersectionObserver === "undefined" || sectionRef.current === null) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const items = sectionRef.current.querySelectorAll(".reveal, .reveal-fast");
+    items.forEach((item) => observer.observe(item));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section id="work" className="section">
+    <section id="work" className="work-section section" ref={sectionRef}>
       <div className="container">
-        <div
-          style={{ display: "flex", justifyContent: "space-between", gap: "1rem" }}
-        >
-          <h2 style={{ fontSize: "2.5rem", margin: 0 }}>
+        <div className="work-kicker reveal-fast">
+          <span className="kicker-line" />
+          <span className="kicker-text">selected work</span>
+          <span className="kicker-line" />
+        </div>
+
+        <div className="work-header-row reveal">
+          <h2 className="work-section-title">
             {title}
             <br />
-            <em style={{ color: "var(--rose)" }}>{emphasizedTitle}</em>
+            <em>{emphasizedTitle}</em>
           </h2>
-          <Link href={viewAllHref}>
-            full portfolio
+          <Link href={viewAllHref} className="view-all-link">
+            full portfolio →
           </Link>
         </div>
 
-        <div
-          style={{
-            marginTop: "2rem",
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
-            gap: "1rem"
-          }}
-        >
-          {projects.map((project) => (
-            <Link
-              key={project._id}
-              href={`/work/${project.slug}`}
-              style={{
-                border: "1px solid var(--rule)",
-                padding: "1rem",
-                textDecoration: "none",
-                background: "var(--paper2)"
-              }}
-            >
-              <div className="muted" style={{ textTransform: "uppercase", fontSize: 12 }}>
-                {project.category}
-              </div>
-              <h3 style={{ margin: "0.25rem 0 0.5rem" }}>{project.title}</h3>
-              <p className="muted" style={{ margin: 0 }}>
-                {project.note}
-              </p>
-            </Link>
-          ))}
+        <div className="work-grid reveal">
+          {projects.map((project, index) => {
+            const isFeatured = project.featured || index === 0;
+            const washClass = project.washColor ? `wash-${project.washColor}` : "wash-rose";
+
+            return (
+              <Link
+                key={project._id}
+                href={`/work/${project.slug}`}
+                className={`work-card ${isFeatured ? "featured" : ""}`.trim()}
+              >
+                <div className={`wash ${washClass}`} />
+                <div className="work-card-inner">
+                  <span className="card-type">{project.category}</span>
+                  <h3 className={`card-title ${isFeatured ? "" : "card-title-sm"}`.trim()}>
+                    {project.title}
+                  </h3>
+                  <p className="card-note">{project.note}</p>
+                </div>
+              </Link>
+            );
+          })}
         </div>
       </div>
     </section>

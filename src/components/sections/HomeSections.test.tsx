@@ -58,5 +58,9 @@ describe("home sections", () => {
     expect(screen.getByText("rotoscope")).toBeInTheDocument();
     const cardLink = screen.getByRole("link", { name: /Trinidad and Tobago/i });
     expect(cardLink).toHaveAttribute("href", "/work/trinidad-and-tobago");
+    expect(cardLink).toHaveClass("work-card");
+    expect(cardLink).toHaveClass("featured");
+    expect(screen.getByText("selected work")).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: /full portfolio/i })).toHaveClass("view-all-link");
   });
 });

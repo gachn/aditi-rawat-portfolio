@@ -47,3 +47,13 @@ The script:
 - extracts Wix image/video assets
 - uploads assets to Sanity
 - patches the matching `project` doc with `coverImage`, `gallery`, and `videoFile`
+
+## Generic Project Content Publish
+Use this to publish text content (title/client/roles/brief) from any project page URL:
+
+1. Add write token:
+   - `SANITY_API_WRITE_TOKEN=your_write_token`
+2. Run:
+   - `npm run publish:project -- --slug trinidad-and-tobago --source https://www.aditirawat.com/animations/trinidad-and-tobago`
+
+You can swap slug/source with any project page in the same format.

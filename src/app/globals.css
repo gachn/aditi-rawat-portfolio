@@ -4,6 +4,8 @@
   --ink: #1c1510;
   --ink2: #4a3f35;
   --rose: #c4614a;
+  --sage: #7a8c72;
+  --gold: #b8922a;
   --rule: rgba(28, 21, 16, 0.13);
 }
 
@@ -35,4 +37,244 @@ a {
 
 .muted {
   color: var(--ink2);
+}
+
+.work-section {
+  padding: 5rem 0;
+}
+
+.work-kicker {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.kicker-line {
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+
+.kicker-text {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink2);
+}
+
+.work-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1rem;
+  margin-bottom: 2.25rem;
+}
+
+.work-section-title {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.work-section-title em {
+  color: var(--rose);
+}
+
+.view-all-link {
+  font-size: 1.05rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 2px;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+}
+
+.view-all-link:hover {
+  color: var(--rose);
+}
+
+.work-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+}
+
+.work-card {
+  background: var(--paper);
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.work-card:hover {
+  background: var(--paper2);
+  transform: translateY(-2px);
+}
+
+.work-card.featured {
+  grid-row: span 2;
+}
+
+.work-card-inner {
+  padding: 1.75rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+  z-index: 2;
+}
+
+.featured .work-card-inner {
+  min-height: 420px;
+}
+
+.wash {
+  position: absolute;
+  inset: 0;
+  opacity: 0.18;
+  transition: opacity 0.3s ease;
+}
+
+.work-card:hover .wash {
+  opacity: 0.26;
+}
+
+.wash-rose {
+  background: var(--rose);
+}
+
+.wash-sage {
+  background: var(--sage);
+}
+
+.wash-gold {
+  background: var(--gold);
+}
+
+.wash-ink {
+  background: #3a2e28;
+}
+
+.work-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent 0px,
+    transparent 6px,
+    rgba(28, 21, 16, 0.025) 6px,
+    rgba(28, 21, 16, 0.025) 7px
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.card-type {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--rose);
+  margin-bottom: 0.4rem;
+}
+
+.card-title {
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.featured .card-title {
+  font-size: 2rem;
+}
+
+.card-title-sm {
+  font-size: 1.2rem;
+}
+
+.card-note {
+  font-size: 0.95rem;
+  color: var(--ink2);
+  margin: 0.4rem 0 0;
+  opacity: 0.8;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.75s ease, transform 0.75s ease;
+}
+
+.reveal-fast {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.reveal.visible,
+.reveal-fast.visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-fast {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .work-card,
+  .wash {
+    transition: none;
+  }
+}
+
+@media (max-width: 960px) {
+  .work-section {
+    padding: 4rem 0;
+  }
+
+  .work-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+  }
+
+  .work-card.featured {
+    grid-row: auto;
+    grid-column: span 2;
+  }
+
+  .featured .work-card-inner {
+    min-height: 260px;
+  }
+}
+
+@media (max-width: 600px) {
+  .work-header-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .work-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .work-card.featured {
+    grid-column: auto;
+  }
 }
