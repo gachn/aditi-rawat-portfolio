@@ -1,5 +1,6 @@
 import React from "react";
 import type { ProjectItem } from "@/lib/sanity/types";
+import Link from "next/link";
 
 interface WorkSectionProps {
   title: string;
@@ -13,7 +14,7 @@ export function WorkSection({
   emphasizedTitle,
   viewAllHref,
   projects
-}: WorkSectionProps) {
+}: Readonly<WorkSectionProps>) {
   return (
     <section id="work" className="section">
       <div className="container">
@@ -25,9 +26,9 @@ export function WorkSection({
             <br />
             <em style={{ color: "var(--rose)" }}>{emphasizedTitle}</em>
           </h2>
-          <a href={viewAllHref}>
+          <Link href={viewAllHref}>
             full portfolio
-          </a>
+          </Link>
         </div>
 
         <div
@@ -39,7 +40,7 @@ export function WorkSection({
           }}
         >
           {projects.map((project) => (
-            <a
+            <Link
               key={project._id}
               href={`/work/${project.slug}`}
               style={{
@@ -56,7 +57,7 @@ export function WorkSection({
               <p className="muted" style={{ margin: 0 }}>
                 {project.note}
               </p>
-            </a>
+            </Link>
           ))}
         </div>
       </div>

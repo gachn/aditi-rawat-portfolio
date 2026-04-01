@@ -1,4 +1,5 @@
 import type { SiteSettings } from "@/lib/sanity/types";
+import Link from "next/link";
 
 function normalizeNavHref(href: string, label: string) {
   if (href === "#work") return "/work";
@@ -8,7 +9,7 @@ function normalizeNavHref(href: string, label: string) {
   return href;
 }
 
-export function TopNav({ siteSettings }: { siteSettings: SiteSettings }) {
+export function TopNav({ siteSettings }: Readonly<{ siteSettings: SiteSettings }>) {
   return (
     <header
       style={{
@@ -23,18 +24,18 @@ export function TopNav({ siteSettings }: { siteSettings: SiteSettings }) {
         className="container"
         style={{ display: "flex", justifyContent: "space-between", padding: "1rem 1.25rem" }}
       >
-        <a href="/" style={{ textDecoration: "none", fontWeight: 700 }}>
+        <Link href="/" style={{ textDecoration: "none", fontWeight: 700 }}>
           {siteSettings.siteTitle} - <span className="muted">{siteSettings.siteTagline}</span>
-        </a>
+        </Link>
         <nav style={{ display: "flex", gap: "1rem" }}>
           {siteSettings.navLinks.map((link) => (
-            <a
+            <Link
               key={link.label}
               href={normalizeNavHref(link.href, link.label)}
               style={{ textDecoration: "none" }}
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
       </div>

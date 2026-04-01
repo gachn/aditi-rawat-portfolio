@@ -5,13 +5,9 @@ import { SiteFooter } from "@/components/sections/SiteFooter";
 import { TopNav } from "@/components/sections/TopNav";
 import { WorkSection } from "@/components/sections/WorkSection";
 import { fetchHomePageData } from "@/lib/sanity/fetchHomePageData";
-import { draftMode } from "next/headers";
-
-export const revalidate = 120;
 
 export default async function HomePage() {
-  const { isEnabled } = await draftMode();
-  const data = await fetchHomePageData(isEnabled);
+  const data = await fetchHomePageData(false);
 
   return (
     <main>

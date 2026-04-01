@@ -5,7 +5,7 @@ Next.js + Sanity rebuild of the portfolio for easy non-coder editing.
 ## Stack
 - Next.js (App Router, TypeScript)
 - Sanity CMS
-- Vercel deployment target
+- GitHub Pages deployment target
 
 ## Setup
 1. Install dependencies:
@@ -21,6 +21,19 @@ Next.js + Sanity rebuild of the portfolio for easy non-coder editing.
    - `npm run sanity:dev`
 2. Open:
    - `http://localhost:3333`
+
+## Deploy to GitHub Pages
+1. Push this repo to GitHub (branch: `main`).
+2. In GitHub, open `Settings` -> `Pages` and set source to `GitHub Actions`.
+3. In GitHub, open `Settings` -> `Secrets and variables` -> `Actions` and add:
+   - `NEXT_PUBLIC_SANITY_PROJECT_ID`
+   - `NEXT_PUBLIC_SANITY_DATASET`
+   - `NEXT_PUBLIC_SANITY_API_VERSION`
+   - `SANITY_API_READ_TOKEN`
+4. Push to `main` to trigger deployment workflow:
+   - `.github/workflows/deploy-pages.yml`
+5. Your site URL will be:
+   - `https://<github-username>.github.io/<repo-name>/`
 
 ## Generic Wix Asset Migration
 Use this for any project slug and source URL:

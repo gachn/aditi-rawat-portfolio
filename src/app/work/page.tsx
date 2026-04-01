@@ -1,13 +1,10 @@
 import { SiteFooter } from "@/components/sections/SiteFooter";
 import { TopNav } from "@/components/sections/TopNav";
 import { fetchHomePageData } from "@/lib/sanity/fetchHomePageData";
-import { draftMode } from "next/headers";
-
-export const revalidate = 120;
+import Link from "next/link";
 
 export default async function WorkPage() {
-  const { isEnabled } = await draftMode();
-  const data = await fetchHomePageData(isEnabled);
+  const data = await fetchHomePageData(false);
 
   return (
     <main>
@@ -29,7 +26,7 @@ export default async function WorkPage() {
             }}
           >
             {data.projects.map((project) => (
-              <a
+              <Link
                 key={project._id}
                 href={`/work/${project.slug}`}
                 style={{
@@ -46,7 +43,7 @@ export default async function WorkPage() {
                 <p className="muted" style={{ margin: 0 }}>
                   {project.note}
                 </p>
-              </a>
+              </Link>
             ))}
           </div>
         </div>
