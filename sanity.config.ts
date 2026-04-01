@@ -5,7 +5,7 @@ import { schemaTypes } from "./sanity/schemaTypes";
 export default defineConfig({
   name: "default",
   title: "Aditi Portfolio CMS",
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "your_project_id",
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "7pwbbr1l",
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || "production",
   plugins: [structureTool()],
   schema: {

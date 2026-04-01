@@ -28,6 +28,20 @@ export interface ProjectItem {
   slug: string;
   category: string;
   note: string;
+  description?: string;
+  client?: string;
+  roles?: string[];
+  projectBrief?: string;
+  coverImage?: {
+    url: string;
+    alt?: string;
+  };
+  gallery?: Array<{
+    url: string;
+    alt?: string;
+  }>;
+  videoUrl?: string;
+  videoFileUrl?: string;
   projectUrl: string;
   featured: boolean;
   washColor: WashColor;

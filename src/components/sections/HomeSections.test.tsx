@@ -56,5 +56,7 @@ describe("home sections", () => {
 
     expect(screen.getByText("Trinidad and Tobago")).toBeInTheDocument();
     expect(screen.getByText("rotoscope")).toBeInTheDocument();
+    const cardLink = screen.getByRole("link", { name: /Trinidad and Tobago/i });
+    expect(cardLink).toHaveAttribute("href", "/work/trinidad-and-tobago");
   });
 });

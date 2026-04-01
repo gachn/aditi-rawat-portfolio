@@ -17,6 +17,20 @@ export const HOME_PAGE_QUERY = groq`{
     "slug": slug.current,
     category,
     note,
+    description,
+    client,
+    roles,
+    projectBrief,
+    "coverImage": {
+      "url": coverImage.asset->url,
+      "alt": coverImage.alt
+    },
+    "gallery": gallery[]{
+      "url": asset->url,
+      "alt": alt
+    },
+    videoUrl,
+    "videoFileUrl": videoFile.asset->url,
     projectUrl,
     featured,
     washColor,
@@ -25,4 +39,34 @@ export const HOME_PAGE_QUERY = groq`{
   "about": *[_type == "about"][0],
   "contact": *[_type == "contact"][0],
   "seo": *[_type == "seo"][0]
+}`;
+
+export const PROJECT_SLUGS_QUERY = groq`*[_type == "project" && defined(slug.current)]{
+  "slug": slug.current
+}`;
+
+export const PROJECT_BY_SLUG_QUERY = groq`*[_type == "project" && slug.current == $slug][0]{
+  _id,
+  title,
+  "slug": slug.current,
+  category,
+  note,
+  description,
+  client,
+  roles,
+  projectBrief,
+  "coverImage": {
+    "url": coverImage.asset->url,
+    "alt": coverImage.alt
+  },
+  "gallery": gallery[]{
+    "url": asset->url,
+    "alt": alt
+  },
+  videoUrl,
+  "videoFileUrl": videoFile.asset->url,
+  projectUrl,
+  featured,
+  washColor,
+  order
 }`;

@@ -28,7 +28,7 @@ export const fallbackHomePageData: HomePageData = {
   },
   workTitle: "things I've",
   workEmphasizedTitle: "made move",
-  workViewAllHref: "https://www.aditirawat.com/projects",
+  workViewAllHref: "/work",
   projects: [
     {
       _id: "project-1",
@@ -36,6 +36,13 @@ export const fallbackHomePageData: HomePageData = {
       slug: "trinidad-and-tobago",
       category: "rotoscope",
       note: "movement as identity",
+      description:
+        "A rotoscope animation exploring identity through movement, texture, and rhythm.",
+      client: "Tarek Mohammed (U.S)",
+      roles: ["Animation"],
+      projectBrief:
+        "A documentary on Trinidad and Tobago national football team. A 25-second mixed media animation inspired by a rotoscope-driven workflow.",
+      videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
       projectUrl: "https://www.aditirawat.com/animations/trinidad-and-tobago",
       featured: true,
       washColor: "rose",
@@ -47,6 +54,10 @@ export const fallbackHomePageData: HomePageData = {
       slug: "youtube-opener",
       category: "channel opener",
       note: "a home for stories",
+      description:
+        "An animated opener designed to establish mood and visual identity from the first frame.",
+      client: "The Nest",
+      roles: ["Animation", "Compositing"],
       projectUrl: "https://www.aditirawat.com/animations/youtube-opener",
       featured: false,
       washColor: "sage",
@@ -58,6 +69,8 @@ export const fallbackHomePageData: HomePageData = {
       slug: "enchanting-cinderella-intro",
       category: "animated intro",
       note: "once upon a frame",
+      description:
+        "A stylized introduction sequence blending character motion and cinematic transitions.",
       projectUrl:
         "https://www.aditirawat.com/animations/enchanting-cinderella-intro",
       featured: false,
@@ -70,6 +83,8 @@ export const fallbackHomePageData: HomePageData = {
       slug: "2d-rotoscope-animation",
       category: "2D rotoscope",
       note: "motion with purpose",
+      description:
+        "A campaign video series built with 2D rotoscope techniques for expressive storytelling.",
       projectUrl: "https://www.aditirawat.com/animations/2d-rotoscope-animation",
       featured: false,
       washColor: "ink",
@@ -81,6 +96,8 @@ export const fallbackHomePageData: HomePageData = {
       slug: "take-on-me-inspired-animation",
       category: "inspired animation",
       note: "pencil lines, full heart",
+      description:
+        "A hand-drawn inspired animation experiment focused on line texture and music sync.",
       projectUrl:
         "https://www.aditirawat.com/animations/take-on-me-inspired-animation",
       featured: false,
@@ -93,6 +110,8 @@ export const fallbackHomePageData: HomePageData = {
       slug: "cherri-lips-ad",
       category: "ad animation",
       note: "short, sweet, moving",
+      description:
+        "A compact ad animation piece crafted for quick impact and playful motion.",
       projectUrl: "https://www.aditirawat.com/animations/cherri-lips-ad",
       featured: false,
       washColor: "sage",

@@ -1,5 +1,13 @@
 import type { SiteSettings } from "@/lib/sanity/types";
 
+function normalizeNavHref(href: string, label: string) {
+  if (href === "#work") return "/work";
+  if (href === "#about") return "/about";
+  if (href === "#contact") return "/contact";
+  if (href.startsWith("#")) return `/${label.toLowerCase()}`;
+  return href;
+}
+
 export function TopNav({ siteSettings }: { siteSettings: SiteSettings }) {
   return (
     <header
@@ -20,7 +28,11 @@ export function TopNav({ siteSettings }: { siteSettings: SiteSettings }) {
         </a>
         <nav style={{ display: "flex", gap: "1rem" }}>
           {siteSettings.navLinks.map((link) => (
-            <a key={link.label} href={link.href} style={{ textDecoration: "none" }}>
+            <a
+              key={link.label}
+              href={normalizeNavHref(link.href, link.label)}
+              style={{ textDecoration: "none" }}
+            >
               {link.label}
             </a>
           ))}

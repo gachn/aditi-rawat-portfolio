@@ -25,7 +25,7 @@ export function WorkSection({
             <br />
             <em style={{ color: "var(--rose)" }}>{emphasizedTitle}</em>
           </h2>
-          <a href={viewAllHref} target="_blank" rel="noreferrer">
+          <a href={viewAllHref}>
             full portfolio
           </a>
         </div>
@@ -41,9 +41,7 @@ export function WorkSection({
           {projects.map((project) => (
             <a
               key={project._id}
-              href={project.projectUrl}
-              target="_blank"
-              rel="noreferrer"
+              href={`/work/${project.slug}`}
               style={{
                 border: "1px solid var(--rule)",
                 padding: "1rem",

@@ -1,9 +1,36 @@
-# Sanity Clean Content Studio
+# Aditi Portfolio Revamp
 
-Congratulations, you have now installed the Sanity Content Studio, an open-source real-time content editing environment connected to the Sanity backend.
+Next.js + Sanity rebuild of the portfolio for easy non-coder editing.
 
-Now you can do the following things:
+## Stack
+- Next.js (App Router, TypeScript)
+- Sanity CMS
+- Vercel deployment target
 
-- [Read “getting started” in the docs](https://www.sanity.io/docs/introduction/getting-started?utm_source=readme)
-- [Join the Sanity community](https://www.sanity.io/community/join?utm_source=readme)
-- [Extend and build plugins](https://www.sanity.io/docs/content-studio/extending?utm_source=readme)
+## Setup
+1. Install dependencies:
+   - `npm install`
+2. Copy env file:
+   - `cp .env.example .env.local`
+3. Add Sanity values in `.env.local`.
+4. Run app:
+   - `npm run dev`
+
+## CMS Editing
+1. Start Studio:
+   - `npm run sanity:dev`
+2. Open:
+   - `http://localhost:3333`
+
+## Generic Wix Asset Migration
+Use this for any project slug and source URL:
+
+1. Add write token:
+   - `SANITY_API_WRITE_TOKEN=your_write_token`
+2. Run:
+   - `npm run migrate:wix -- --slug trinidad-and-tobago --source https://www.aditirawat.com/animations/trinidad-and-tobago`
+
+The script:
+- extracts Wix image/video assets
+- uploads assets to Sanity
+- patches the matching `project` doc with `coverImage`, `gallery`, and `videoFile`
