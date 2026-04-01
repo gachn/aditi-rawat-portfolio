@@ -32,12 +32,6 @@ export const project = defineType({
       rows: 8
     }),
     defineField({
-      name: "coverImage",
-      type: "image",
-      options: { hotspot: true },
-      fields: [{ name: "alt", type: "string", title: "Alt text" }]
-    }),
-    defineField({
       name: "gallery",
       type: "array",
       of: [

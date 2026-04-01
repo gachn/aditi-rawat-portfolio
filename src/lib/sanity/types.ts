@@ -32,10 +32,6 @@ export interface ProjectItem {
   client?: string;
   roles?: string[];
   projectBrief?: string;
-  coverImage?: {
-    url: string;
-    alt?: string;
-  };
   gallery?: Array<{
     url: string;
     alt?: string;

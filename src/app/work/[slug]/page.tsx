@@ -109,19 +109,6 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             </video>
           ) : null}
 
-          {project.coverImage?.url ? (
-            <img
-              src={project.coverImage.url}
-              alt={project.coverImage.alt || `${project.title} cover`}
-              style={{
-                width: "100%",
-                maxWidth: 960,
-                marginTop: "1.5rem",
-                border: "1px solid var(--rule)"
-              }}
-            />
-          ) : null}
-
           {project.gallery?.length ? (
             <div
               style={{
@@ -145,22 +132,6 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           <p style={{ marginTop: "1.5rem" }}>
             <strong>Project note:</strong> {project.note}
           </p>
-          {project.projectUrl ? (
-            <a
-              href={project.projectUrl}
-              target="_blank"
-              rel="noreferrer"
-              style={{
-                display: "inline-block",
-                marginTop: "1rem",
-                textDecoration: "none",
-                border: "1px solid var(--rule)",
-                padding: "0.6rem 1rem"
-              }}
-            >
-              View original link
-            </a>
-          ) : null}
         </div>
       </section>
       <SiteFooter siteSettings={homeData.siteSettings} />

@@ -21,10 +21,6 @@ export const HOME_PAGE_QUERY = groq`{
     client,
     roles,
     projectBrief,
-    "coverImage": {
-      "url": coverImage.asset->url,
-      "alt": coverImage.alt
-    },
     "gallery": gallery[]{
       "url": asset->url,
       "alt": alt
@@ -55,10 +51,6 @@ export const PROJECT_BY_SLUG_QUERY = groq`*[_type == "project" && slug.current =
   client,
   roles,
   projectBrief,
-  "coverImage": {
-    "url": coverImage.asset->url,
-    "alt": coverImage.alt
-  },
   "gallery": gallery[]{
     "url": asset->url,
     "alt": alt

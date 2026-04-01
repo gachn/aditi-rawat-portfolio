@@ -11,8 +11,8 @@ describe("sanity queries", () => {
     expect(HOME_PAGE_QUERY).toContain("seo");
   });
 
-  it("includes project media fields for rich case studies", () => {
-    expect(HOME_PAGE_QUERY).toContain("coverImage");
+  it("includes only required project media fields", () => {
+    expect(HOME_PAGE_QUERY).not.toContain("coverImage");
     expect(HOME_PAGE_QUERY).toContain("gallery");
     expect(HOME_PAGE_QUERY).toContain("videoUrl");
     expect(HOME_PAGE_QUERY).toContain("videoFile");

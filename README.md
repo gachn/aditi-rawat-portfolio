@@ -46,7 +46,7 @@ Use this for any project slug and source URL:
 The script:
 - extracts Wix image/video assets
 - uploads assets to Sanity
-- patches the matching `project` doc with `coverImage`, `gallery`, and `videoFile`
+- patches the matching `project` doc with `gallery` and `videoFile`
 
 ## Generic Project Content Publish
 Use this to publish text content (title/client/roles/brief) from any project page URL:

@@ -112,14 +112,7 @@ async function main() {
   }
 
   const patch = {
-    coverImage: imageAssetIds[0]
-      ? {
-          _type: "image",
-          asset: { _type: "reference", _ref: imageAssetIds[0] },
-          alt: `${projectDoc.title} cover image`
-        }
-      : undefined,
-    gallery: imageAssetIds.slice(1).map((id, idx) => ({
+    gallery: imageAssetIds.map((id, idx) => ({
       _type: "image",
       _key: `img-${idx + 1}`,
       asset: { _type: "reference", _ref: id },
