@@ -1,0 +1,38 @@
+:root {
+  --paper: #f9f4ec;
+  --paper2: #f2ebe0;
+  --ink: #1c1510;
+  --ink2: #4a3f35;
+  --rose: #c4614a;
+  --rule: rgba(28, 21, 16, 0.13);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+a {
+  color: inherit;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+.section {
+  padding: 4rem 0;
+  border-top: 1px solid var(--rule);
+}
+
+.muted {
+  color: var(--ink2);
+}
